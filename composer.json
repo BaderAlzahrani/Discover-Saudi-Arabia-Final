@@ -1,0 +1,7 @@
+{
+  "name": "saudi/discover-app",
+  "description": "اكتشف السعودية — PHP + PDO",
+  "require": {
+    "php": ">=8.1"
+  }
+}

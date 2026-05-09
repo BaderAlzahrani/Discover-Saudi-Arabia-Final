@@ -1,0 +1,356 @@
+/* الإعدادات العامة للجسم */
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    transition: background 0.4s ease, color 0.4s ease; 
+    line-height: 1.6;
+}
+
+/* تصميم الهيدر - جعلته يبدو أكثر حداثة بنظام Flexbox */
+header { 
+    background-color: #1b5e20; 
+    color: white; 
+    padding: 1rem 5%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* ظل خفيف للتميز */
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+nav a { 
+    color: white; 
+    margin-right: 20px; /* مسافة بين الروابط */
+    text-decoration: none; 
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+/* تصميم قسم الـ Hero ليظهر بشكل مختلف تماماً عن الأمثلة */
+.hero { 
+    background-color: #f1f8e9; 
+    padding: 60px 20px; 
+    text-align: center; 
+    margin: 30px auto; 
+    max-width: 1000px;
+    border-radius: 25px; /* زوايا منحنية تعطي مظهراً حديثاً */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.hero h1 { color: #1b5e20; margin-bottom: 10px; }
+.hero h2 { color: #2e7d32; font-weight: normal; margin-bottom: 20px; }
+
+/* تصميم الأزرار */
+button, .btn-primary { 
+    padding: 12px 28px; 
+    background-color: #2e7d32; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 50px; /* شكل بيضاوي حديث */
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #1b5e20;
+    transform: scale(1.05); /* تكبير خفيف عند المرور */
+}
+
+/* أنماط الوضع الليلي (Night Mode) */
+body.night-mode { background-color: #121212; color: #f0f0f0; }
+body.night-mode .hero { background-color: #1e1e1e; color: #e0e0e0; }
+body.night-mode header { background-color: #0b2e0c; }
+body.night-mode .hero h1, body.night-mode .hero h2 { color: #81c784; }
+
+/* Gallery Page Specific Styles */
+.container { padding: 40px 5%; text-align: center; }
+
+.filter-sec { margin-bottom: 30px; }
+
+#regionFilter {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #1b5e20;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.gallery { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; 
+    padding: 20px 0;
+}
+
+.card { 
+    background: white; 
+    padding: 0; /* Changed to 0 so image fits perfectly to edges */
+    overflow: hidden;
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+    cursor: pointer; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.card img { 
+    width: 100%; 
+    height: 220px; 
+    object-fit: cover; 
+}
+
+.card h3 { color: #1b5e20; margin: 15px 0 5px 0; padding: 0 15px; text-align: center; }
+.card p { color: #666; margin-bottom: 15px; padding: 0 15px; font-size: 0.9rem; text-align: center; }
+
+/* Night Mode Gallery Overrides */
+body.night-mode .card { background: #1e1e1e; }
+body.night-mode .card h3 { color: #81c784; }
+body.night-mode .card p { color: #bbb; }
+body.night-mode #regionFilter { background: #333; color: white; border-color: #81c784; }
+
+/* Admin Dashboard Specific Styles */
+.admin-container { 
+    padding: 40px 5%; 
+    max-width: 1100px; 
+    margin: auto; 
+}
+
+/* Professional Table Styling */
+.admin-table { 
+    width: 100%; 
+    border-collapse: separate; 
+    border-spacing: 0; 
+    margin-top: 20px; 
+    background: white; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.admin-table th { 
+    background-color: #f1f8e9; 
+    color: #1b5e20; 
+    padding: 15px; 
+    font-weight: bold;
+    border-bottom: 2px solid #e8f5e9;
+}
+
+.admin-table td { 
+    padding: 15px; 
+    border-bottom: 1px solid #f0f0f0;
+    color: #444;
+}
+
+/* Zebra Stripes */
+.admin-table tr:nth-child(even) { background-color: #fafafa; }
+
+/* Action Buttons */
+/* --- UPDATED ACTION BUTTONS & ADD BUTTON --- */
+
+/* Base style for all admin-side buttons to force white text and no underline */
+.btn, 
+.btn-edit, 
+.btn-delete, 
+.btn-add-new,
+.admin-container .btn {
+    padding: 10px 20px;
+    color: #ffffff !important;         /* Force white text */
+    text-decoration: none !important;  /* Remove browser underlines */
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Specific button colors */
+.btn-edit, .btn-add-new { 
+    background-color: #2e7d32 !important; 
+}
+
+.btn-delete { 
+    background-color: #d32f2f !important; 
+}
+
+/* Add New button specific spacing */
+.btn-add-new { 
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 12px 25px;
+}
+
+/* Hover effects */
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    color: #ffffff !important;
+}
+
+/* Night Mode Overrides to ensure contrast stays high */
+body.night-mode .btn-edit, 
+body.night-mode .btn-add-new { 
+    background-color: #4caf50 !important; 
+    color: #ffffff !important;
+}
+
+body.night-mode .btn-delete { 
+    background-color: #e53935 !important; 
+    color: #ffffff !important;
+}
+
+/* Success Alert Banner */
+.alert { 
+    background-color: #e8f5e9; 
+    color: #2e7d32; 
+    padding: 15px; 
+    border-radius: 10px; 
+    margin-bottom: 20px; 
+    border-right: 5px solid #2e7d32;
+    font-weight: bold;
+}
+
+/* Night Mode Overrides for Table */
+body.night-mode .admin-table { background: #1e1e1e; box-shadow: none; }
+body.night-mode .admin-table th { background: #2e2e2e; color: #81c784; border-bottom: 2px solid #333; }
+body.night-mode .admin-table td { color: #ccc; border-bottom: 1px solid #333; }
+body.night-mode .admin-table tr:nth-child(even) { background-color: #252525; }
+
+/* Admin Form Styling */
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #1b5e20;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    box-sizing: border-box; /* Crucial for padding */
+}
+
+/* Night Mode for Forms */
+body.night-mode .form-container {
+    background: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.night-mode .form-group input, 
+body.night-mode .form-group textarea {
+    background: #2e2e2e;
+    border-color: #444;
+    color: white;
+}
+
+/* Details Page Styling */
+.detail-hero-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.info-box {
+    background-color: #f1f8e9;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    text-align: right; /* Aligns "Quick Info" header and text to the right */
+    direction: rtl;    /* Ensures bullet points appear on the right side */
+}
+
+.info-box h3 { color: #1b5e20; margin-top: 0; }
+
+.info-box ul { list-style-type: '• '; padding-right: 20px; }
+
+.gallery-thumb {
+    width: 30%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 5px;
+    transition: transform 0.3s;
+}
+
+.gallery-thumb:hover { transform: scale(1.05); }
+
+/* Night Mode for Details */
+body.night-mode .info-box { background-color: #1e1e1e; color: #e0e0e0; }
+
+/* Fix for the landmarks list */
+.landmarks-section {
+    text-align: right; /* Aligns "Important Landmarks" header to the right */
+    margin-top: 20px;
+    direction: rtl;
+}
+
+/* Fixes the list markers (dots) to appear on the right of the text */
+.info-box ul, .landmarks-section ul {
+    list-style-position: inside;
+    padding-right: 15px; /* Adds spacing for the bullets on the right */
+    margin: 10px 0;
+}
+
+.info-box li, .landmarks-section li {
+    margin-bottom: 8px;
+}
+
+/* Keeps the gallery title right-aligned but centers the photos */
+h3 {
+    text-align: right;
+    color: #1b5e20;
+    margin-top: 25px;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-around; /* Spreads images evenly like the example */
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.gallery-thumb {
+    width: 30%; /* Sets images side-by-side */
+    min-width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+}
