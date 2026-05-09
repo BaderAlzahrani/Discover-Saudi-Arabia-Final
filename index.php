@@ -1,3 +1,10 @@
+<?php
+// Set session settings BEFORE starting session (must be at the very top, before any output)
+ini_set('session.cookie_lifetime', 3600);
+ini_set('session.gc_maxlifetime', 3600);
+session_start();
+$is_admin = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true;
+?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -7,13 +14,6 @@
     <link rel="stylesheet" href="styles_test.css">
 </head>
 <body>
-<?php
-// Set session settings BEFORE starting session
-ini_set('session.cookie_lifetime', 3600);
-ini_set('session.gc_maxlifetime', 3600);
-session_start();
-$is_admin = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true;
-?>
     <header>
         <div class="logo">اكتشف السعودية</div>
         <nav>
